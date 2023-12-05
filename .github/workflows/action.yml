@@ -15,7 +15,7 @@ jobs:
         with:
           workspace-id: ${{ secrets.WORKSPACE_ID }}
         env:
-          MABL_API_KEY: ${{ secrets.API_KEY }}
+          MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
 
       - name: Update env
         run: mabl environments update uKI949gWxPdWWsCY7dFv8g-e --variables GITBRANCH:"testNameUpdateVer"
