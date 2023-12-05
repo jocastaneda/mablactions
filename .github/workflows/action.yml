@@ -1,0 +1,21 @@
+on: [push, workflow_dispatch]
+
+name: mabl Simple Example
+
+jobs:
+  test:
+    name: mabl Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+
+      - uses: mablhq/setup-mabl-cli@v1
+        with:
+          workspace-id: ${{ secrets.WORKSPACE_ID }}
+        env:
+          MABL_API_KEY: ${{ secrets._API_KEY }}
+
+      - name: Update env
+        run: mabl environments update uKI949gWxPdWWsCY7dFv8g-e --variables GITBRANCH:"testNameUpdateVer"
