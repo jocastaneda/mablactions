@@ -32,3 +32,4 @@ jobs:
         with:
           application-id: ${{ secrets.APPLICATION_ID }}
           environment-id: uKI949gWxPdWWsCY7dFv8g-e
+          plan-labels: onboarding
