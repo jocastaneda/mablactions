@@ -18,7 +18,7 @@ jobs:
           MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
 
       - name: Update env
-        run: mabl environments update uKI949gWxPdWWsCY7dFv8g-e --variables GITBRANCH:"testNameUpdateVer"
+        run: mabl environments update ${{ secrets.DEV_ENV_ID }} --variables GITBRANCH:"testNameUpdateVer"
 
       - uses: actions/checkout@v3
 
@@ -31,5 +31,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           application-id: ${{ secrets.APPLICATION_ID }}
-          environment-id: uKI949gWxPdWWsCY7dFv8g-e
+          environment-id: ${{ secrets.DEV_ENV_ID }}
           plan-labels: onboarding
