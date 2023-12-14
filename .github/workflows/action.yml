@@ -33,4 +33,6 @@ jobs:
           application-id: ${{ secrets.APPLICATION_ID }}
           environment-id: ${{ secrets.DEV_ENV_ID }}
           plan-labels: onboarding
+
+      - name: Output the plan maybe
         run: echo "This is the plan:" ${{ needs.test.outputs.plans_run }}
