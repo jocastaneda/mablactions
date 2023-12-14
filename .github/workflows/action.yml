@@ -6,6 +6,8 @@ jobs:
   test:
     name: mabl Test
     runs-on: ubuntu-latest
+    outputs:
+      PlansPassed: ${{ steps.mabl-test-deployment.outputs.PlansPassed }}
     steps:
       - uses: actions/setup-node@v2
         with:
