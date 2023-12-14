@@ -38,8 +38,8 @@ jobs:
     name: Display things
     runs-on: ubuntu-latest
     needs: test
-      steps:
-        name: Output the plans
+    steps:
+      - name: Output the plans
         run: |
           echo "We be here now"
           echo "This is the plan: ${{ needs.test.outputs.plans_run }}"
