@@ -7,7 +7,7 @@ jobs:
     name: mabl Test
     runs-on: ubuntu-latest
     outputs:
-      PlansPassed: ${{ steps.mabl-test-deployment.outputs.PlansPassed }}
+      plan_count: ${{ steps.mabl-test-deployment.outputs.plans_passed }}
     steps:
       - uses: actions/setup-node@v2
         with:
@@ -42,5 +42,5 @@ jobs:
     needs: test
     steps:
       - env:
-          PLANS_PASSED:  ${{ needs.test.outputs.PlansPassed }}
+          PLANS_PASSED:  ${{ needs.test.outputs.plan_count }}
         run: echo "Total plans run $PLANS_PASSED"
