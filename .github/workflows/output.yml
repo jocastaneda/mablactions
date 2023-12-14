@@ -1,0 +1,31 @@
+on: [push, workflow_dispatch]
+
+name: MABL outputs
+
+jobs:
+  deployment:
+    name: mabl Test
+    runs-on: ubuntu-latest
+    outputs:
+      plan_count: ${{ steps.mabl-test-deployment.outputs.plans_passed }}
+    steps:
+      - name: Functional test deployment
+        id: mabl-test-deployment
+        uses: mablhq/github-run-tests-action@v1
+        env:
+          # Use a "CI/CD Integration" type of mabl API key
+          MABL_API_KEY: ${{ secrets.API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          application-id: ${{ secrets.APPLICATION_ID }}
+          environment-id: ${{ secrets.DEV_ENV_ID }}
+          plan-labels: CICD 
+
+  second:
+    name: Display things
+    runs-on: ubuntu-latest
+    needs: deployment
+    steps:
+      - env:
+          PLANS_PASSED:  ${{ needs.test.outputs.plan_count }}
+        run: echo "Total plans run $PLANS_PASSED"
