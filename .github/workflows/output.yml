@@ -1,4 +1,4 @@
-on: [push, workflow_dispatch]
+on: [workflow_dispatch]
 
 name: MABL outputs
 
@@ -27,5 +27,5 @@ jobs:
     needs: deployment
     steps:
       - env:
-          PLANS_PASSED:  ${{ needs.test.outputs.plan_count }}
+          PLANS_PASSED:  ${{ needs.deployment.outputs.plan_count }}
         run: echo "Total plans run $PLANS_PASSED"
