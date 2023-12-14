@@ -36,5 +36,5 @@ jobs:
 
       - name: Output the plan maybe
         run: |
-        echo "thing here"
-        echo "This is the plan:" ${{ needs.test.outputs.plans_run }}
+          echo "We be here now:
+          echo "This is the plan: ${{ needs.test.outputs.plans_run }}"
