@@ -1,4 +1,6 @@
-on: [workflow_dispatch]
+on:
+  schedule:
+   - cron: "30 * * * 4"
 
 name: mabl Simple Example
 
