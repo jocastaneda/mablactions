@@ -11,6 +11,7 @@ jobs:
           browsers: chrome
           environment-id: uKI949gWxPdWWsCY7dFv8g-e
           labels: CICD
+          await-completion: false
 workflows:
   test-my-app:
     jobs:
