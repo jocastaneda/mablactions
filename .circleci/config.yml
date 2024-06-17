@@ -8,7 +8,6 @@ jobs:
       - mabl-trigger-tests/run-tests:
           api-key: MABL_API_KEY
           application-id: f5Q53PU99zhenBo5tIYiFw-a
-          browsers: chrome, firefox, safari
           environment-id: qsTNCPcTh5H1Nix1scKRfQ-e
           labels: CICD
 workflows:
