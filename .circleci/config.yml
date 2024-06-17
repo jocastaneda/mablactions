@@ -9,6 +9,7 @@ jobs:
           api-key: MABL_API_KEY
           application-id: f5Q53PU99zhenBo5tIYiFw-a
           environment-id: qsTNCPcTh5H1Nix1scKRfQ-e
+          labels: CICD
 workflows:
   test-my-app:
     jobs:
