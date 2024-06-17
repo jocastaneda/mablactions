@@ -11,7 +11,6 @@ jobs:
           browsers: chrome, firefox, safari
           environment-id: qsTNCPcTh5H1Nix1scKRfQ-e
           labels: CICD
-          await-completion: true
 workflows:
   test-my-app:
     jobs:
