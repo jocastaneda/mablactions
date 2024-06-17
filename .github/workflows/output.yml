@@ -17,8 +17,8 @@ jobs:
           MABL_API_KEY: ${{ secrets.API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          application-id: ${{ secrets.APPLICATION_ID }}
-          environment-id: ${{ secrets.DEV_ENV_ID }}
+          application-id: f5Q53PU99zhenBo5tIYiFw-a
+          environment-id: qsTNCPcTh5H1Nix1scKRfQ-e
           plan-labels: CICD 
 
   second:
