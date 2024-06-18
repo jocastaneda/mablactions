@@ -7,9 +7,10 @@ jobs:
     steps:
       - mabl-trigger-tests/run-tests:
           api-key: MABL_API_KEY
-          application-id: f5Q53PU99zhenBo5tIYiFw-a
-          environment-id: qsTNCPcTh5H1Nix1scKRfQ-e
-          labels: CICD
+          application-id: jwS0bh5jB74Q4Zt1dgFAog-a
+          environment-id: uKI949gWxPdWWsCY7dFv8g-e
+          labels: customer_reproduction_test
+          debug: true
 workflows:
   test-my-app:
     jobs:
