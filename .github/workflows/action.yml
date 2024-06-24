@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: '18.x'
+          node-version: '20.x'
 
       - uses: mablhq/setup-mabl-cli@v1
         with:
@@ -21,11 +21,6 @@ jobs:
 
       - name: Update env
         run: mabl environments update ${{ secrets.DEV_ENV_ID }} --variables GITBRANCH:"${{ github.head_ref || github.ref_name }}"
-
-      - name: Echo things
-        run: |
-          echo ${{steps}};
-          echo ${{github}};
 
       - uses: actions/checkout@v3
 
