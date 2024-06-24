@@ -20,7 +20,7 @@ jobs:
           MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
 
       - name: Update env
-        run: mabl environments update ${{ secrets.DEV_ENV_ID }} --variables GITBRANCH:${{ github.head_ref || github.ref_name }}
+        run: mabl environments update ${{ secrets.DEV_ENV_ID }} --variables GITBRANCH:"${{ github.head_ref || github.ref_name }}"
 
       - uses: actions/checkout@v3
 
