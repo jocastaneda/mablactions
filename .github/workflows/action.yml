@@ -1,4 +1,4 @@
-on: [workflow_dispatch]
+eon: [workflow_dispatch, pull_request]
 
 name: mabl Simple Example
 
@@ -24,8 +24,8 @@ jobs:
 
       - name: Echo things
         run: |
-          print ${{steps}};
-          print ${{github}};
+          echo ${{steps}};
+          echo ${{github}};
 
       - uses: actions/checkout@v3
 
