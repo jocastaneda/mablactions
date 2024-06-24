@@ -22,6 +22,11 @@ jobs:
       - name: Update env
         run: mabl environments update ${{ secrets.DEV_ENV_ID }} --variables GITBRANCH:"${{ github.head_ref || github.ref_name }}"
 
+      - name: Echo things
+        run: |
+          print ${{steps}};
+          print ${{github}};
+
       - uses: actions/checkout@v3
 
       - name: Functional test deployment
