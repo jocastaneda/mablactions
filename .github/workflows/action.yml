@@ -19,10 +19,10 @@ jobs:
         env:
           MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
 
-      - name: Update env
-        run: mabl environments update ${{ secrets.DEV_ENV_ID }} --variables GITBRANCH:"testNameUpdateVer"
+      # - name: Update env
+      #   run: mabl environments update ${{ secrets.DEV_ENV_ID }} --variables GITBRANCH:"testNameUpdateVer"
 
-      - uses: actions/checkout@v3
+      # - uses: actions/checkout@v3
 
       - name: Functional test deployment
         id: mabl-test-deployment
@@ -36,11 +36,11 @@ jobs:
           environment-id: ${{ secrets.DEV_ENV_ID }}
           plan-labels: onboarding
 
-  second:
-    name: Display things
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - env:
-          PLANS_PASSED:  ${{ needs.test.outputs.plan_count }}
-        run: echo "Total plans run $PLANS_PASSED"
+  # second:
+  #   name: Display things
+  #   runs-on: ubuntu-latest
+  #   needs: test
+  #   steps:
+  #     - env:
+  #         PLANS_PASSED:  ${{ needs.test.outputs.plan_count }}
+  #       run: echo "Total plans run $PLANS_PASSED"
