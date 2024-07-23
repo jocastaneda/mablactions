@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: '18.x'
+          node-version: '20.x'
 
       - uses: mablhq/setup-mabl-cli@v1
         with:
@@ -26,7 +26,7 @@ jobs:
 
       - name: Functional test deployment
         id: mabl-test-deployment
-        uses: mablhq/github-run-tests-action@v1
+        uses: mablhq/github-run-tests-action@vlatest
         env:
           # Use a "CI/CD Integration" type of mabl API key
           MABL_API_KEY: ${{ secrets.API_KEY }}
