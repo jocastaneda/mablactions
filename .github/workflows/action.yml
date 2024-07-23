@@ -34,7 +34,7 @@ jobs:
         with:
           application-id: ${{ secrets.APPLICATION_ID }}
           environment-id: ${{ secrets.DEV_ENV_ID }}
-          plan-labels: onboarding
+          plan-labels: multi-stage
 
   # second:
   #   name: Display things
