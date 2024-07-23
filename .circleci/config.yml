@@ -9,7 +9,7 @@ jobs:
           api-key: MABL_API_KEY
           application-id: jwS0bh5jB74Q4Zt1dgFAog-a
           environment-id: uKI949gWxPdWWsCY7dFv8g-e
-          labels: customer_reproduction_test
+          labels: multi-stage
           debug: true
 workflows:
   test-my-app:
