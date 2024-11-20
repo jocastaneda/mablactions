@@ -22,4 +22,4 @@ jobs:
           MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
 
       - name: Update env
-        run: mabl tests run --id gmG3rjgoTaCTSJY44lze4g-j --environment-id uKI949gWxPdWWsCY7dFv8g-e --url "https://sandbox.mabl.com"
+        run: mabl tests run --id gmG3rjgoTaCTSJY44lze4g-j --environment-id uKI949gWxPdWWsCY7dFv8g-e --url "https://sandbox.mabl.com" --headless
