@@ -20,7 +20,7 @@ jobs:
           MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
 
       - name: Update env
-        run: mabl deployments create --application-id jwS0bh5jB74Q4Zt1dgFAog-a --environment-id uKI949gWxPdWWsCY7dFv8g-e --labels githubaction --scenario-id aCx74ECZ9jxAfhiJr3Eckw-vr
+        run: mabl deployments create --application-id jwS0bh5jB74Q4Zt1dgFAog-a --environment-id uKI949gWxPdWWsCY7dFv8g-e --labels githubaction
 
       # - uses: actions/checkout@v3
 
