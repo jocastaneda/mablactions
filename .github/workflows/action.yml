@@ -19,22 +19,22 @@ jobs:
         env:
           MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
 
-      # - name: Update env
-      #   run: mabl environments update ${{ secrets.DEV_ENV_ID }} --variables GITBRANCH:"testNameUpdateVer"
+      - name: Update env
+        run: mabl deployments create --application-id jwS0bh5jB74Q4Zt1dgFAog-a --environment-id uKI949gWxPdWWsCY7dFv8g-e --labels githubaction --scenario-id aCx74ECZ9jxAfhiJr3Eckw-vr
 
       # - uses: actions/checkout@v3
 
-      - name: Functional test deployment
-        id: mabl-test-deployment
-        uses: mablhq/github-run-tests-action@v1.13.0
-        env:
-          # Use a "CI/CD Integration" type of mabl API key
-          MABL_API_KEY: ${{ secrets.API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          application-id: ${{ secrets.APPLICATION_ID }}
-          environment-id: ${{ secrets.DEV_ENV_ID }}
-          plan-labels: multi-stage
+      # - name: Functional test deployment
+      #   id: mabl-test-deployment
+      #   uses: mablhq/github-run-tests-action@v1.13.0
+      #   env:
+      #     # Use a "CI/CD Integration" type of mabl API key
+      #     MABL_API_KEY: ${{ secrets.API_KEY }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     application-id: ${{ secrets.APPLICATION_ID }}
+      #     environment-id: ${{ secrets.DEV_ENV_ID }}
+      #     plan-labels: multi-stage
 
   # second:
   #   name: Display things
