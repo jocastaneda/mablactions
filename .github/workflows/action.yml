@@ -20,7 +20,11 @@ jobs:
           MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
 
       - name: set and show workspace
-        run: mabl config list && mabl config set workspace ${{ secrets.WORKSPACE_ID }}
+        run: |
+          mabl auth clear
+          mabl auth activate-key  ${{ secrets.SPRT_WRKSP_KEY }}
+          mabl config list
+
   support:
     name: second workspace
     runs-on: ubuntu-latest
@@ -36,7 +40,9 @@ jobs:
           MABL_API_KEY: ${{ secrets.SPRT_WRKSP_KEY }}
 
       - name: Set new workspace
-        run: mabl config list && mabl config set workspace ${{ secrets.SPRT_WRKSPC }}
+        run: |
+          mabl config list
+          mabl config set workspace ${{ secrets.SPRT_WRKSPC }}
       
       # - uses: actions/checkout@v3
 
