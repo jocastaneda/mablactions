@@ -5,7 +5,7 @@ name: mabl Simple Example
 jobs:
   test:
     name: mabl Test
-    uses: ./steps/one
+    uses: jocastaneda/mablactions/steps/one@latest
 
   support:
     name: second workspace
