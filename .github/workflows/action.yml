@@ -31,9 +31,9 @@ jobs:
 
       - uses: mablhq/setup-mabl-cli@v1
         with:
-          workspace-id: ${{ secrets.WORKSPACE_ID }}
+          workspace-id: ${{ secrets.SPRT_WRKSPC }}
         env:
-          MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
+          MABL_API_KEY: ${{ secrets.SPRT_WRKSP_KEY }}
 
       - name: Set new workspace
         run: mabl config list && mabl config set workspace ${{ secrets.SPRT_WRKSPC }}
