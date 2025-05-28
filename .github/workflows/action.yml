@@ -22,7 +22,11 @@ jobs:
       - name: set and show workspace
         run: |
           mabl auth clear
+          echo "removed the previously set key"
+          echo "now we use the new key"
           mabl auth activate-key  ${{ secrets.SPRT_WRKSP_KEY }}
+          echo "let us list the new workspace being used"
+          echo "it should be the support one not the JC one"
           mabl config list
 
   support:
