@@ -14,13 +14,15 @@ jobs:
           node-version: '23.x'
 
       - uses: mablhq/setup-mabl-cli@v1
-        with:
-          workspace-id: ${{ secrets.WORKSPACE_ID }}
+        # with:
+        #   workspace-id: ${{ secrets.WORKSPACE_ID }}
         env:
           MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
 
       - name: set and show workspace
         run: |
+          mabl config list
+          echo "showed the current config"
           mabl auth clear
           echo "removed the previously set key"
           echo "now we use the new key"
