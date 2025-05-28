@@ -19,9 +19,25 @@ jobs:
         env:
           MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
 
-      - name: Update env
-        run: mabl deployments create --application-id jwS0bh5jB74Q4Zt1dgFAog-a --environment-id uKI949gWxPdWWsCY7dFv8g-e --labels githubaction
+      - name: set and show workspace
+        run: mabl config list && mabl config set workspace ${{ secrets.WORKSPACE_ID }}
+  support:
+    name: second workspace
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '20.x'
 
+      - uses: mablhq/setup-mabl-cli@v1
+        with:
+          workspace-id: ${{ secrets.WORKSPACE_ID }}
+        env:
+          MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
+
+      - name: Set new workspace
+        run: mabl config list && mabl config set workspace ${{ secrets.SPRT_WRKSPC }}
+      
       # - uses: actions/checkout@v3
 
       # - name: Functional test deployment
