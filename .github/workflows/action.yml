@@ -5,7 +5,7 @@ name: mabl Simple Example
 jobs:
   test:
     name: mabl Test
-    uses: steps/one.yml
+    uses: ./.github/workflows/steps/one
 
   support:
     name: second workspace
