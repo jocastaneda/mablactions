@@ -1,0 +1,21 @@
+runs-on: ubuntu-latest
+  steps:
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '23.x'
+
+    - uses: mablhq/setup-mabl-cli@v1
+      env:
+        MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
+
+    - name: set and show workspace
+      run: |
+        mabl config list
+        echo "showed the current config"
+        mabl auth clear
+        echo "removed the previously set key"
+        echo "now we use the new key"
+        mabl auth activate-key  ${{ secrets.SPRT_WRKSP_KEY }}
+        echo "let us list the new workspace being used"
+        echo "it should be the support one not the JC one"
+        mabl config list
