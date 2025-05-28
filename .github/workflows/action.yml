@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: '20.x'
+          node-version: '23.x'
 
       - uses: mablhq/setup-mabl-cli@v1
         with:
@@ -27,11 +27,11 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: '20.x'
+          node-version: '23.x'
 
       - uses: mablhq/setup-mabl-cli@v1
-        with:
-          workspace-id: ${{ secrets.SPRT_WRKSPC }}
+        # with:
+        #   workspace-id: ${{ secrets.SPRT_WRKSPC }}
         env:
           MABL_API_KEY: ${{ secrets.SPRT_WRKSP_KEY }}
 
