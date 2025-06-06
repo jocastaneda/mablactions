@@ -1,6 +1,8 @@
 name: Process mabl insight
 # This workflow is triggered on new mabl insights
-on: [repository_dispatch]
+on:
+  repository_dispatch:
+    - mabl_insight
 
 jobs:
   build:
