@@ -19,56 +19,47 @@ jobs:
         env:
           MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
 
-      - name: set and show workspace
-        run: |
-          mabl config list
-          echo "showed the current config"
-          mabl auth clear
-          echo "removed the previously set key"
-          echo "now we use the new key"
-          mabl auth activate-key  ${{ secrets.SPRT_WRKSP_KEY }}
-          echo "let us list the new workspace being used"
-          echo "it should be the support one not the JC one"
-          mabl config list
+      - name: create deployment event
+        run: mabl deployments create --application-id jwS0bh5jB74Q4Zt1dgFAog-a --environment-id uKI949gWxPdWWsCY7dFv8g-e --labels cli gitlab-demo onboarding
 
-  support:
-    name: second workspace
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '23.x'
-
-      - uses: mablhq/setup-mabl-cli@v1
-        # with:
-        #   workspace-id: ${{ secrets.SPRT_WRKSPC }}
-        env:
-          MABL_API_KEY: ${{ secrets.SPRT_WRKSP_KEY }}
-
-      - name: Set new workspace
-        run: |
-          mabl config list
-          mabl config set workspace ${{ secrets.SPRT_WRKSPC }}
-      
-      # - uses: actions/checkout@v3
-
-      # - name: Functional test deployment
-      #   id: mabl-test-deployment
-      #   uses: mablhq/github-run-tests-action@v1.13.0
-      #   env:
-      #     # Use a "CI/CD Integration" type of mabl API key
-      #     MABL_API_KEY: ${{ secrets.API_KEY }}
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     application-id: ${{ secrets.APPLICATION_ID }}
-      #     environment-id: ${{ secrets.DEV_ENV_ID }}
-      #     plan-labels: multi-stage
-
-  # second:
-  #   name: Display things
+  # support:
+  #   name: second workspace
   #   runs-on: ubuntu-latest
-  #   needs: test
   #   steps:
-  #     - env:
-  #         PLANS_PASSED:  ${{ needs.test.outputs.plan_count }}
-  #       run: echo "Total plans run $PLANS_PASSED"
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '23.x'
+
+  #     - uses: mablhq/setup-mabl-cli@v1
+  #       # with:
+  #       #   workspace-id: ${{ secrets.SPRT_WRKSPC }}
+  #       env:
+  #         MABL_API_KEY: ${{ secrets.SPRT_WRKSP_KEY }}
+
+  #     - name: Set new workspace
+  #       run: |
+  #         mabl config list
+  #         mabl config set workspace ${{ secrets.SPRT_WRKSPC }}
+      
+  #     # - uses: actions/checkout@v3
+
+  #     # - name: Functional test deployment
+  #     #   id: mabl-test-deployment
+  #     #   uses: mablhq/github-run-tests-action@v1.13.0
+  #     #   env:
+  #     #     # Use a "CI/CD Integration" type of mabl API key
+  #     #     MABL_API_KEY: ${{ secrets.API_KEY }}
+  #     #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #     #   with:
+  #     #     application-id: ${{ secrets.APPLICATION_ID }}
+  #     #     environment-id: ${{ secrets.DEV_ENV_ID }}
+  #     #     plan-labels: multi-stage
+
+  # # second:
+  # #   name: Display things
+  # #   runs-on: ubuntu-latest
+  # #   needs: test
+  # #   steps:
+  # #     - env:
+  # #         PLANS_PASSED:  ${{ needs.test.outputs.plan_count }}
+  # #       run: echo "Total plans run $PLANS_PASSED"
