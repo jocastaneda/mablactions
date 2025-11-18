@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: '23.x'
+          node-version: '24.x'
 
       - uses: mablhq/setup-mabl-cli@v1
         # with:
@@ -20,7 +20,7 @@ jobs:
           MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
 
       - name: create deployment event
-        run: mabl deployments create --application-id jwS0bh5jB74Q4Zt1dgFAog-a --environment-id uKI949gWxPdWWsCY7dFv8g-e --labels cli gitlab-demo onboarding
+        run: mabl deployments create --application-id jwS0bh5jB74Q4Zt1dgFAog-a --environment-id uKI949gWxPdWWsCY7dFv8g-e --labels githubaction
 
   # support:
   #   name: second workspace
