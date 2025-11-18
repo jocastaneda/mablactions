@@ -1,0 +1,17 @@
+version: '2.1'
+orbs:
+  mabl-trigger-tests: mabl/trigger-tests@latest
+jobs:
+  run-mabl-tests:
+    machine: true
+    steps:
+      - mabl-trigger-tests/run-tests:
+          api-key: MABL_API_KEY
+          application-id: jwS0bh5jB74Q4Zt1dgFAog-a
+          environment-id: uKI949gWxPdWWsCY7dFv8g-e
+          labels: githubaction
+          debug: true
+workflows:
+  test-my-app:
+    jobs:
+      - run-mabl-tests
