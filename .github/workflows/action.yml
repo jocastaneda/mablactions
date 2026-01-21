@@ -20,8 +20,7 @@ jobs:
           MABL_API_KEY: ${{ secrets.CLI_API_KEY }}
 
       - name: create deployment event
-        run: mabl deployments create --application-id jwS0bh5jB74Q4Zt1dgFAog-a --environment-id uKI949gWxPdWWsCY7dFv8g-e --labels githubaction
-
+        run: mabl deployments create -e uKI949gWxPdWWsCY7dFv8g-e -a jwS0bh5jB74Q4Zt1dgFAog-a --labels cli
   # support:
   #   name: second workspace
   #   runs-on: ubuntu-latest
